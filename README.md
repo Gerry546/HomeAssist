@@ -1,0 +1,2 @@
+# HomeAssist
+HomeAssistant configuration
