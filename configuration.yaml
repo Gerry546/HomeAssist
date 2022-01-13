@@ -30,6 +30,21 @@ sensor:
     id: "" # (optional, default = '') use if you'd like to have multiple waste pickup locations in HASS
     exclude_list: "luiers,keukenafval" # (optional, default = '') comma separated list of wast types (case ignored). F.e. "papier, gft"
 
+# lovelace:
+#   mode: storage
+#   resources: #hacs
+#     [ { url: /hacsfiles/button-card/button-card.js,           type: module },
+#       { url: /hacsfiles/lovelace-card-mod/card-mod.js,        type: module },
+#       { url: /hacsfiles/lovelace-layout-card/layout-card.js,  type: module },
+#       { url: /hacsfiles/swipe-card/swipe-card.js,             type: module } ]
+#   dashboards:
+#     lovelace-yaml:
+#       mode: yaml
+#       title: FrontEnd2.0
+#       icon: mdi:script
+#       show_in_sidebar: true
+#       filename: ui-lovelace.yaml
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
