@@ -1,0 +1,37 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+history:
+  exclude:
+    domains:
+      - binary_sensor
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+camera:
+  - platform: mjpeg
+    name: OctoPrint
+    still_image_url: !secret octoprint_camera_url
+    mjpeg_url: !secret octoprint_stream_url
+
+sensor:
+  - platform: afvalwijzer
+    provider: mijnafvalwijzer # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, afvalstoffendienstkalender or rova
+    postal_code: !secret afvalwijzer_postalcode # (required, default = '')
+    street_number: !secret afvalwijzer_streetnumber # (required, default = '')
+    suffix: "" # (optional, default = '')
+    include_date_today: false # (optional, default = false) to take or not to take Today into account in the next pickup.
+    default_label: Geen # (optional, default = Geen) label if no date found
+    id: "" # (optional, default = '') use if you'd like to have multiple waste pickup locations in HASS
+    exclude_list: "luiers,keukenafval" # (optional, default = '') comma separated list of wast types (case ignored). F.e. "papier, gft"
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+light: !include light.yaml
