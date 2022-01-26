@@ -11,7 +11,10 @@ home-assistant.code-workspace
 home-assistant.log*
 home-assistant_*
 
-themes
+backup
+themes/google_dark_theme
+thems/ios-dark-mode
+themes/noctis-solarized
 node-red
 custom_components
 blueprints

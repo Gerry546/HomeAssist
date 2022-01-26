@@ -1,0 +1,50 @@
+title: System
+path: system
+icon: mdi:desktop-classic
+type: custom:grid-layout
+layout:
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar .            .                 .                 ."
+    "sidebar internet     ping              updates           ."
+    "sidebar gateway      .                 updates           ."
+    "sidebar .            .                 .                 ."
+  mediaquery:
+    "(max-width: 600px)":
+      grid-template-columns: 100%
+      grid-template-areas: |
+        "sidebar"
+        "."
+        "."
+    "(max-width: 800px)":
+      grid-template-columns: 50% 50%
+      grid-template-areas: |
+        "sidebar ."
+        ".       ."
+cards:
+  - !include ui-sidebar.yaml
+  #####################################
+  - type: custom:mini-graph-card
+    view_layout:
+      grid-area: internet
+    name: Internet Speed
+    entities:
+      - entity: sensor.speedtest_download
+      - entity: sensor.speedtest_upload
+  #####################################
+  - type: custom:mini-graph-card
+    view_layout:
+      grid-area: ping
+    name: Internet Ping
+    entities:
+      - entity: sensor.speedtest_ping
+  #####################################
+  - type: entities
+    view_layout:
+      grid-area: gateway
+    entities:
+      - entity: sensor.fritz_box_7590_connection_uptime
+      - entity: sensor.fritz_box_7590_device_uptime
+      - entity: sensor.fritz_box_7590_external_ip

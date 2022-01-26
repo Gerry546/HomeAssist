@@ -1,0 +1,67 @@
+title: Second Floor
+path: second_floor
+icon: mdi:home-floor-2
+type: custom:grid-layout
+layout:
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar .            .                 .                 ."
+    "sidebar hobby_room   guest_room        hallway           . "
+    "sidebar .            .                 .                 ."
+    "sidebar .            .                 .                 ."
+  mediaquery:
+    "(max-width: 600px)":
+      grid-template-columns: 100%
+      grid-template-areas: |
+        "sidebar"
+        "."
+        "."
+    "(max-width: 800px)":
+      grid-template-columns: 50% 50%
+      grid-template-areas: |
+        "sidebar ."
+        ".       ."
+cards:
+  - !include ui-sidebar.yaml
+  #############################################
+  - type: grid
+    view_layout:
+      grid-area: hobby_room
+    columns: 2
+    square: false
+    title: Hobby Room
+    cards:
+      - type: custom:button-card
+        entity: light.hobby_room
+        template:
+          - light
+      - type: custom:button-card
+        entity: cover.shutter_hobby_room
+        template:
+          - base
+  #############################################
+  - type: grid
+    view_layout:
+      grid-area: guest_room
+    columns: 2
+    square: false
+    title: Guest Room
+    cards:
+      - type: custom:button-card
+        entity: cover.shutter_guest_room
+        template:
+          - base
+  #############################################
+  - type: grid
+    view_layout:
+      grid-area: hallway
+    columns: 2
+    square: false
+    title: Hallway
+    cards:
+      - type: custom:button-card
+        entity: light.hallway_2
+        template:
+          - light
