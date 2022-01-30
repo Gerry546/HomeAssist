@@ -39,10 +39,7 @@ light:
     entities:
       - light.front_living_room
       - light.back_living_room
-      - light.mood_lights
       - light.kitchen
-      - light.hallway_light_0
-      - light.toilet_downstairs
 
   ###############################
   # Outside

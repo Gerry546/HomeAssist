@@ -14,16 +14,28 @@ layout:
   mediaquery:
     "(max-width: 600px)":
       grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
-      grid-template-columns: 100%
+      grid-template-columns: 0 repeat(1, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
       grid-template-areas: |
-        "states"
-        "media"
+        ".    .       ."
+        ".    sidebar ."
+        ".    states  ."
+        ".    media   ."
+        ".    .       ."
+        ".    .       ."
+        ".    .       ."
     "(max-width: 800px)":
-      grid-gap: var(--custom-layout-card-padding)
-      grid-template-columns: 50% 50%
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(2, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
       grid-template-areas: |
-        "media   ."
-        "states  ."
+        ".    .       .       ."
+        ".    sidebar sidebar ."
+        ".    states  media   ."
+        ".    .       .       ."
+        ".    .       .       ."
+        ".    .       .       ."
+        ".    .       .       ."
 cards:
   - !include ui-sidebar.yaml
 
