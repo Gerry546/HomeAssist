@@ -49,6 +49,7 @@ cards:
         entity: light.hobby_room
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: cover.shutter_hobby_room
         template:
@@ -77,3 +78,4 @@ cards:
         entity: light.hallway_2
         template:
           - light
+          - icon_spot

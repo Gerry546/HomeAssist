@@ -51,6 +51,7 @@ cards:
         entity: light.bedroom_light
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: light.bed_side_lamp_1
         template:
@@ -74,6 +75,7 @@ cards:
         entity: light.bathroom_light
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: light.toilet_upstairs
         template:
@@ -130,6 +132,7 @@ cards:
         entity: light.study_room_light
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: switch.3d_printer_power_switch
         template:

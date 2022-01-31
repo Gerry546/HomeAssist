@@ -42,19 +42,40 @@ cards:
   #############################################
   # Media
   #############################################
-  - type: vertical-stack
+  - type: grid
     title: Media
+    columns: 1
     view_layout:
       grid-area: media
     cards:
-      - type: horizontal-stack
+      - type: custom:swipe-card
+        start_card: 1
+        parameters:
+          roundLengths: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
         cards:
-          - type: media-control
-            entity: media_player.living_room_speaker
-          - type: media-control
-            entity: media_player.study_speaker
-      - type: media-control
-        entity: media_player.living_room_tv
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: select.conditional_media
+                    state_not: TV
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+
 
   #############################################
   # States
@@ -71,18 +92,22 @@ cards:
         name: Ground Floor
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: light.first_floor
         name: First Floor
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: light.second_floor
         name: Second Floor
         template:
           - light
+          - icon_hue
       - type: custom:button-card
         entity: light.outside
         name: Outside
         template:
           - light
+          - icon_hue

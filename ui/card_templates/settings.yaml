@@ -4,6 +4,6 @@ settings:
     #     entity_browser_mod: media_player.browser_9c06ce87_d1cf313c
 
     translate_unknown: Unknown
-#     translate_idle: Inaktiv
+    translate_idle: Inactive
 #     translate_home: Ja
 #     translate_not_home: Nej
