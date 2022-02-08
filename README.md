@@ -1,5 +1,5 @@
 # HomeAssist
-HomeAssistant configuration
+HomeAssistant configuration created from the repository at https://github.com/matt8707/hass-config
 
 # Todo:
 - sidebar sensor
