@@ -1,0 +1,55 @@
+title: Exterior
+path: exterior
+icon: mdi:tree
+type: custom:grid-layout
+layout:
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar .            .                 .                 ."
+    "sidebar garage       .                 .                 ."
+    "sidebar .            .                 .                 ."
+    "sidebar .            .                 .                 ."
+  mediaquery:
+    "(max-width: 600px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(1, 1fr) 0
+      grid-template-rows: 0 repeat(7, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .               ."
+        ".    sidebar         ."
+        ".    garage          ."
+        ".    .               ."
+        ".    .               ."
+        ".    .               ."
+        ".    .               ."
+    "(max-width: 800px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(2, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .               .           ."
+        ".    sidebar         sidebar     ."
+        ".    garage          .           ."
+        ".    .               .           ."
+        ".    .               .           ."
+        ".    .               .           ."
+cards:
+  - !include ui-sidebar.yaml
+  #############################################
+  - type: grid
+    view_layout:
+      grid-area: garage
+    columns: 2
+    square: false
+    title: Garage
+    cards:
+      - type: custom:button-card
+        entity: switch.garage_door_2
+        template:
+          - base
+      - type: custom:button-card
+        entity: light.garage
+        template:
+          - light

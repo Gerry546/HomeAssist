@@ -1,0 +1,91 @@
+###############################
+# Ground Floor
+###############################
+light:
+  - platform: group
+    name: TV Corner
+    entities:
+      - light.tvcorner1
+      - light.tvcorner2
+      - light.tvcorner3
+
+  - platform: group
+    name: Front Living Room
+    entities:
+      - light.tv_corner
+      - light.reading_corner
+
+  - platform: group
+    name: Back Living Room
+    entities:
+      - light.dinner_table
+      - light.pc_corner
+
+  - platform: group
+    name: Living Room
+    entities:
+      - light.front_living_room
+      - light.back_living_room
+
+  - platform: group
+    name: Mood Lights
+    entities:
+      - light.stone_lamp
+      - light.small_lamp
+      - light.cupboard
+
+  - platform: group
+    name: Ground Floor
+    entities:
+      - light.front_living_room
+      - light.back_living_room
+      - light.kitchen
+
+  ###############################
+  # Outside
+  ###############################
+
+  - platform: group
+    name: Garage
+    entities:
+      - light.garage_back_light
+      - light.garage_front_light
+
+  - platform: group
+    name: Outside
+    entities:
+      - light.garage
+
+  ###############################
+  # First Floor
+  ###############################
+
+  - platform: group
+    name: Master Bedroom
+    entities:
+      - light.bed_side_lamp_1
+      - light.bed_side_lamp_2
+      - light.bedroom_light
+
+  - platform: group
+    name: Toilet Upstairs
+    entities:
+      - light.toilet_first_floor_1
+      - light.toilet_first_floor_2
+
+  - platform: group
+    name: First Floor
+    entities:
+      - light.master_bedroom
+      - light.toilet_upstairs
+      - light.study_room_light
+      - light.bathroom_light
+
+  ###############################
+  # Second Floor
+  ###############################
+  - platform: group
+    name: Second Floor
+    entities:
+      - light.hobby_room
+      - light.hallway_2

@@ -1,0 +1,512 @@
+Travis Theme:
+  ########################
+  # Header
+  ########################
+  app-header-background-color: "#101e24"
+  app-header-text-color: var(--primary-text-color)
+
+  ########################
+  # Main interface colors
+  ########################
+  primary-color: "#03a9f4"
+  # light-primary-color: var(--primary-color)
+  primary-background-color: "#111111"
+  secondary-background-color: "#202020"
+  divider-color: rgba(255, 255, 255, 0.12)
+  # accent-color: rgb(138, 180, 248)
+
+  ########################
+  # Text
+  ########################
+  primary-text-color: "#e1e1e1"
+  # secondary-text-color:
+  # text-primary-color:
+  # disabled-text-color:
+
+  ########################
+  # Sidebar Menu
+  ########################
+  # sidebar-icon-color: rgb(169, 177, 188)
+  # sidebar-text-color: rgb(198, 203, 210)
+  # sidebar-background-color: rgb(32, 33, 36)
+  sidebar-background-color: var(--card-background-color)
+  # sidebar-selected-icon-color: rgb(138, 180, 248)
+  # sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  sidebar-font-size: 1.5vw
+  sidebar-line-height: 2.1vw
+  sidebar-time-font-size: 5vw
+  sidebar-time-line-height: 4vw
+
+  ########################
+  # Button
+  ########################
+  # paper-item-icon-color: rgb(169, 177, 188)
+  # paper-item-icon-active-color: rgb(138, 180, 248)
+
+  ########################
+  # States and Badges
+  ########################
+  state-icon-color: "#9da0a2"
+  state-icon-active-color: "#3182b7"
+  # state-icon-unavailable-color: var(--disabled-text-color)
+
+  ########################
+  # Sliders
+  ########################
+  paper-slider-knob-color: "#a4abb1"
+  paper-slider-knob-start-color: "#a4abb1"
+  paper-slider-pin-color: "#626a6f"
+  paper-slider-active-color: "#626a6f"
+  # paper-slider-secondary-color: var(--light-primary-color)
+  paper-slider-container-color: "#202020"
+
+  ########################
+  # Labels
+  ########################
+  # label-badge-background-color: rgb(32, 33, 36)
+  # label-badge-text-color: rgb(198, 203, 210)
+  # label-badge-red: rgb(208, 101, 104)
+  # label-badge-green: rgb(128, 200, 132)
+  # label-badge-blue: rgb(138, 180, 248)
+  # label-badge-yellow: rgb(223, 194, 113)
+  # label-badge-gray: rgb(95, 98, 103)
+
+  ########################
+  # Cards
+  ########################
+  card-background-color: "#1c1c1c"
+  # ha-card-border-radius: "10px"
+  # ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
+  # paper-dialog-background-color: var(--card-background-color)
+  # paper-listbox-background-color: var(--card-background-color)
+  # paper-card-background-color: var(--card-background-color)
+  ha-card-box-shadow: none
+  ha-card-background: none
+  ha-card-background-color: rgba(34,38,39,0.9)
+  ha-card-header-background-color: rgba(48,52,52,0.8)
+  card-content-padding: 1.8em 2.2em 1.8em 2em
+
+  ########################
+  # Switches
+  ########################
+  # switch-checked-button-color: rgb(138, 180, 248)
+  # switch-checked-track-color: rgb(138, 180, 248)
+  switch-unchecked-button-color: "#3b4041"
+  switch-unchecked-track-color: "#0c0d0d"
+  switch-checked-color: "#7a7d7f"
+
+  ########################
+  # Toggles
+  #########################
+  # paper-toggle-button-checked-button-color: var(--switch-checked-button-color)
+  # paper-toggle-button-checked-bar-color: var(--switch-checked-track-color)
+  # paper-toggle-button-unchecked-button-color: var(--switch-unchecked-button-color)
+  # paper-toggle-button-unchecked-bar-color: var(--switch-unchecked-track-color)
+
+  ##########################
+  # Table
+  ###########################
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+  # data-table-background-color: var(--primary-background-color)
+  # mdc-checkbox-unchecked-color: rgb(169, 177, 188)
+
+  #############################
+  # Dropdowns
+  ##############################
+  # material-background-color: var(--secondary-background-color)
+  # material-secondary-background-color: var(--primary-background-color)
+  # mdc-theme-surface: var(--primary-background-color)
+
+  ##############################
+  # Vertical stack
+  ##############################
+  vertical-stack-card-margin: 0
+
+  ##############################
+  # Custom button
+  ##############################
+  custom-button-card-border-radius: 8%
+
+  ##############################
+  # Custom layout
+  ##############################
+  custom-layout-card-padding: 3.3vw
+
+  ##############################
+  # Toast messages
+  ##############################
+  paper-toast-color: var(--primary-text-color)
+  paper-toast-background-color: "#1b1b1bf2"
+
+  ##############################
+  # Pre/Code
+  ##############################
+  # markdown-code-background-color: rgb(23, 23, 23)
+  grid-card-gap: 5%
+  masonry-view-card-margin: 0px
+  mdc-dialog-scrim-color: rgba(0, 0, 0, 0.5)
+
+####################################################
+  #                                                  #
+  #                     CARD-MOD                     #
+  #                                                  #
+  ####################################################
+
+  card-mod-theme: Travis Theme
+
+  card-mod-root: |
+    ha-app-layout {
+      background: url('/local/background.png');
+      background-size: cover;
+    }
+
+  card-mod-view-yaml: |
+    .: |
+      hui-view {
+        background: none !important;
+        min-height: 100vh;
+      }
+
+    #################################################
+    #                                               #
+    #              GRID CARD HEADINGS               #
+    #                                               #
+    #################################################
+
+    grid-layout$:
+      hui-grid-card:
+        $: |
+          /* default */
+          h1 {
+            font-size: 2.4vw !important;
+            line-height: 0 !important;
+            font-family: SF Text, Roboto !important;
+            font-weight: 500 !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 1vw 0 2vw 0 !important;
+          }
+          /* portrait */
+          @media screen and (max-width: 1200px) {
+            h1 {
+              font-size: 3.3vw !important;
+              line-height: 1.1vw !important;
+            }
+          }
+          /* phone */
+          @media screen and (max-width: 800px) {
+            h1 {
+              font-size: 5.5vw !important;
+              line-height: 6vw !important;
+              margin: 2vw 0 0 0 !important;
+            }
+          }
+
+    #################################################
+    #                                               #
+    #               SWIPE CARD MARGIN               #
+    #                                               #
+    #################################################
+
+        $swipe-card$:
+          .: |
+            div {
+              height: 100%;
+            }
+          hui-horizontal-stack-card$:
+            .: |
+              hui-conditional-card {
+                margin: 0 !important;
+              }
+
+    #################################################
+    #                                               #
+    #            SIDEBAR VERTICAL-STACK             #
+    #                                               #
+    #################################################
+
+    grid-layout$hui-vertical-stack-card$: |
+      #root {
+        background-color: rgba(0, 0, 0, 0.06);
+        border-radius: 0;
+        border-right: 0.1vw solid rgba(58, 69, 73, 0.2);
+        min-height: 100vh;
+      }
+      /* phone */
+      @media screen and (max-width: 800px) {
+        #root {
+          background-color: rgba(0,0,0,0);
+          border-right: none;
+          min-height: 100%;
+          margin-left: -0.8%;
+          margin-bottom: -6%;
+        }
+      }
+
+    #################################################
+    #                                               #
+    #             SIDEBAR LAUNDRY TIMER             #
+    #                                               #
+    #################################################
+
+    grid-layout$hui-vertical-stack-card$hui-conditional-card:
+      .: |
+        hui-conditional-card {
+          display: flex;
+          justify-content: center;
+        }
+        hui-conditional-card > button-card {
+          width: 65%;
+        }
+        /* phone */
+        @media screen and (max-width: 800px) {
+          hui-conditional-card {
+            position: absolute;
+            top: 3vw;
+            right: 5.5vw;
+            padding: 19vw 0 0 0;
+          }
+          hui-conditional-card > button-card {
+            width: 100%;
+            zoom: 250%;
+            filter: contrast(75%)
+          }
+        }
+
+    #################################################
+    #                                               #
+    #             SIDEBAR BOTTOM ICONS              #
+    #                                               #
+    #################################################
+
+    "grid-layout$hui-vertical-stack-card$hui-grid-card":
+      .: |
+        hui-grid-card {
+          display: flex;
+          flex: auto;
+          align-items: flex-end;
+        }
+
+        /* phone */
+        @media screen and (max-width: 800px) {
+          hui-grid-card {
+            position: absolute;
+            right: 5.5vw;
+          }
+        }
+
+      $: |
+        #root {
+          width: 100%;
+          padding: 0 13% 25% 13%;
+        }
+
+        /* phone */
+        @media screen and (max-width: 800px) {
+          #root {
+            padding: 0 0 0 55%;
+          }
+        }
+
+      #conditional color
+      "$hui-button-card:last-of-type$": |
+        {% if is_state('binary_sensor.template_sidebar_update_color', 'on') %}
+
+          ha-card, ha-state-icon {
+            color: rgb(35, 78 ,106) !important;
+            opacity: 1 !important;
+            animation: update 1.5s ease-out infinite;
+          }
+
+          ha-card:hover {
+            filter: brightness(130%);
+            animation-play-state: paused;
+          }
+
+        {% endif %}
+
+          @keyframes update {
+            0% {
+              transform: scale(1);
+            }
+            40% {
+              transform: scale(1.08);
+            }
+            50% {
+              transform: scale(0.98);
+            }
+            55% {
+              transform: scale(1.02);
+            }
+            60% {
+              transform: scale(0.98);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+
+  card-mod-card: |
+    .header .card-header {
+      font-family: SF Text, Roboto;
+      letter-spacing: 0.005em;
+      font-size: 1.6em;
+      font-weight: 500;
+      padding: 1em 0 0 1.68em;
+      line-height: initial;
+      cursor: default;
+    }
+
+    .content .card-content {
+      padding: var(--card-content-padding);
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *           BUTTON CARD           *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
+
+    .type-button {
+      display: block;
+      --paper-item-icon-color: var(--state-icon-color);
+      opacity: 0.2;
+      transition: 0.4s;
+      height: initial;
+    }
+
+    .type-button:hover {
+      opacity: 0.5;
+      transition: none;
+    }
+
+    .type-button:active {
+      opacity: 0.7;
+      transition: none;
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+      *                                 *
+      *         CUSTOM BAR CARD         *
+      *                                 *
+      * * * * * * * * * * * * * * * * * */
+
+    .type-custom-bar-card bar-card-name {
+      padding-left: 0.25em;
+    }
+
+    .type-custom-bar-card bar-card-iconbar {
+      padding-left: 0.23em;
+    }
+
+    .type-custom-bar-card bar-card-value {
+      font-size: 1em;
+      font-weight: 400;
+      color: #e0e1e1;
+      letter-spacing: 0.01em;
+      text-shadow: none;
+      margin-right: auto;
+      margin-top: 5px;
+    }
+
+    .type-custom-bar-card bar-card-backgroundbar {
+      background: none;
+    }
+
+    .type-custom-bar-card bar-card-background  {
+      background: radial-gradient(circle, rgba(52, 57, 58, 0.1) 0%, rgba(17, 18, 18, 0.2) 75%);
+      box-shadow: inset 0 0 25px #00000045;
+      border-radius: 0.3em;
+      overflow: hidden;
+    }
+
+  card-mod-more-info-yaml: |
+    .: |
+      app-toolbar {
+        background: none !important;
+      }
+
+      .main-title {
+        margin-top: 5px;
+        font-family: SF Text, Roboto;
+        letter-spacing: 0.005em;
+      }
+
+      mwc-icon-button {
+        margin-top: -2px;
+        color: #9e9e9e;
+      }
+
+    "mwc-icon-button":
+      $: |
+        button > mwc-ripple {
+          margin-top: 3px;
+        }
+
+    "layout-card$grid-layout$": |
+        #root {
+          margin: 0 !important;
+        }
+
+    $: |
+      .mdc-dialog__scrim {
+        -webkit-backdrop-filter: blur(1.5em);
+        backdrop-filter: blur(1.5em);
+        transition: none !important;
+      }
+
+      .mdc-dialog .mdc-dialog__container {
+        background: none;
+      }
+
+      .mdc-dialog__surface {
+        background: linear-gradient(180deg,
+          var(--ha-card-header-background-color) 0%,
+          var(--ha-card-header-background-color) 4.6em,
+          var(--ha-card-background-color) 4.6em,
+          var(--ha-card-background-color) 100%) !important;
+        box-shadow: none !important;
+        border-radius: 1em !important;
+      }
+
+      .mdc-dialog--closing {
+        display: none !important;
+      }
+
+    #################################################
+    #                                               #
+    #            CUSTOM LIGHT POPUP CARD            #
+    #                                               #
+    #################################################
+
+    light-popup-card$: |
+      #popup {
+        margin: -2em 0 2.5em 0;
+        isolation: isolate;
+      }
+
+      input[type=range] {
+        cursor: grab;
+      }
+
+      #brightnessValue {
+        color: rgba(255, 255, 255, 0.8);
+        margin: -10vh 0 0 0;
+        font-size: 2em;
+        font-weight: 400;
+        position: absolute;
+        z-index: 1;
+        font-family: SF Display, Roboto;
+        letter-spacing: 0.02em;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        text-align: center;
+      }
+
+      #popup>div.range-holder>input[type=range] {
+        --slider-thumb-color: #b4b4b4 !important;
+      }
+
+      #popup>div.range-holder>input[type=range]::-webkit-slider-thumb {
+        cursor: grabbing;
+      }

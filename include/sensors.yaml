@@ -1,0 +1,9 @@
+sensor:
+  - platform: afvalwijzer
+    provider: mijnafvalwijzer # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, afvalstoffendienstkalender or rova
+    postal_code: !secret afvalwijzer_postalcode # (required, default = '')
+    street_number: !secret afvalwijzer_streetnumber # (required, default = '')
+    suffix: "" # (optional, default = '')
+    default_label: Geen # (optional, default = Geen) label if no date found
+    id: "" # (optional, default = '') use if you'd like to have multiple waste pickup locations in HASS
+    exclude_list: "luiers,keukenafval" # (optional, default = '') comma separated list of wast types (case ignored). F.e. "papier, gft"

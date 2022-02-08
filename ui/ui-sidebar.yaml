@@ -1,0 +1,28 @@
+type: vertical-stack
+view_layout:
+  grid-area: sidebar
+cards:
+  # - type: custom:button-card
+  #   entity: sensor.template_sidebar
+  #   template: sidebar_template
+
+  - type: "custom:digital-clock"
+    dateFormat:
+      weekday: "long"
+      day: "2-digit"
+      month: "short"
+    timeFormat:
+      hour: "2-digit"
+      minute: "2-digit"
+  - type: weather-forecast
+    entity: weather.home
+  - type: entities
+    entities:
+      - entity: sensor.afvalwijzer_gft_2
+      - entity: sensor.afvalwijzer_papier_2
+      - entity: sensor.afvalwijzer_pmd
+      - entity: sensor.afvalwijzer_restafval_2
+  - type: horizontal-stack
+    cards:
+      - type: button
+        entity: switch.sleep_requested

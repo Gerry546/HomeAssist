@@ -1,0 +1,156 @@
+title: Overview
+path: overview
+icon: mdi:home
+type: custom:grid-layout
+layout:
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar .        .       .   ."
+    "sidebar states   media   .   ."
+    "sidebar .        .       .   ."
+    "sidebar .        .       .   ."
+  mediaquery:
+    "(max-width: 600px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(1, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .       ."
+        ".    sidebar ."
+        ".    states  ."
+        ".    media   ."
+        ".    .       ."
+        ".    .       ."
+        ".    .       ."
+    "(max-width: 800px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(2, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .       .       ."
+        ".    sidebar sidebar ."
+        ".    states  media   ."
+        ".    .       .       ."
+        ".    .       .       ."
+        ".    .       .       ."
+        ".    .       .       ."
+cards:
+  - !include ui-sidebar.yaml
+
+  #############################################
+  # Media
+  #############################################
+  - type: grid
+    title: Media
+    columns: 1
+    view_layout:
+      grid-area: media
+    cards:
+      - type: custom:swipe-card
+        start_card: 
+        parameters:
+          roundLengths: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_select.conditional_media
+                    state_not: StudySpeaker
+                  - entity: input_select.conditional_media
+                    state_not: LivingRoomSpeaker
+                card:
+                # TODO: add recently played
+                  type: custom:button-card
+                  entity: media_player.living_room_speaker
+                  tap_action:
+                    action: none
+                  template:
+                    - conditional_media
+                    - icon_nest_mini
+              - type: conditional
+                conditions:
+                  - entity: input_select.conditional_media
+                    state: StudySpeaker
+                card:
+                  type: custom:button-card
+                  entity: media_player.study_speaker
+                  template:
+                    - conditional_media
+                    - icon_nest_mini
+              - type: conditional
+                conditions:
+                  - entity: input_select.conditional_media
+                    state: LivingRoomSpeaker
+                card:
+                  type: custom:button-card
+                  entity: media_player.living_room_speaker
+                  template:
+                    - conditional_media
+                    - icon_nest_mini
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
+
+
+  #############################################
+  # States
+  #############################################
+  - type: grid
+    view_layout:
+      grid-area: states
+    columns: 2
+    title: Lights
+    square: false
+    cards:
+      - type: custom:button-card
+        entity: light.ground_floor
+        name: Ground Floor
+        template:
+          - light
+          - icon_hue
+      - type: custom:button-card
+        entity: light.first_floor
+        name: First Floor
+        template:
+          - light
+          - icon_hue
+      - type: custom:button-card
+        entity: light.second_floor
+        name: Second Floor
+        template:
+          - light
+          - icon_hue
+      - type: custom:button-card
+        entity: light.outside
+        name: Outside
+        template:
+          - light
+          - icon_hue

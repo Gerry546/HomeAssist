@@ -1,0 +1,62 @@
+title: System
+path: system
+icon: mdi:desktop-classic
+type: custom:grid-layout
+layout:
+  grid-gap: var(--custom-layout-card-padding)
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar .            .                 .                 ."
+    "sidebar internet     ping              updates           ."
+    "sidebar gateway      .                 updates           ."
+    "sidebar .            .                 .                 ."
+  mediaquery:
+    "(max-width: 600px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(1, 1fr) 0
+      grid-template-rows: 0 repeat(7, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .               ."
+        ".    sidebar         ."
+        ".    internet        ."
+        ".    ping            ."
+        ".    updates         ."
+        ".    gateway         ."
+        ".    .               ."
+    "(max-width: 800px)":
+      grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
+      grid-template-columns: 0 repeat(2, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+      grid-template-areas: |
+        ".    .               .           ."
+        ".    sidebar         sidebar     ."
+        ".    internet        ping        ."
+        ".    hallway         .           ."
+        ".    updates         gateway     ."
+        ".    .               .           ."
+cards:
+  - !include ui-sidebar.yaml
+  #####################################
+  - type: custom:mini-graph-card
+    view_layout:
+      grid-area: internet
+    name: Internet Speed
+    entities:
+      - entity: sensor.speedtest_download
+      - entity: sensor.speedtest_upload
+  #####################################
+  - type: custom:mini-graph-card
+    view_layout:
+      grid-area: ping
+    name: Internet Ping
+    entities:
+      - entity: sensor.speedtest_ping
+  #####################################
+  - type: entities
+    view_layout:
+      grid-area: gateway
+    entities:
+      - entity: sensor.fritz_box_7590_connection_uptime
+      - entity: sensor.fritz_box_7590_device_uptime
+      - entity: sensor.fritz_box_7590_external_ip
