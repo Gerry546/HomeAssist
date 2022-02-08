@@ -8,6 +8,8 @@ base:
       [[[ return entity === undefined || Date.now() - Date.parse(entity.last_changed); ]]]
     consider_on: >
       [[[ return ['on', 'home', 'cool', 'fan_only', 'playing'].indexOf(entity === undefined || entity.state) !== -1; ]]]
+    timeout: >
+        [[[ return entity === undefined || Date.now() - Date.parse(entity.last_changed); ]]]
   aspect_ratio: 1/1
   show_state: true
   show_icon: false

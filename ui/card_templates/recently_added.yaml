@@ -1,4 +1,6 @@
 recently_added:
+  template:
+    - conditional_media
   name: Recently Added
   variables:
     i: >
