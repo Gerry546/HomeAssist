@@ -1,18 +1,18 @@
-sidebar_template:
-  show_state: false
-  show_icon: false
-  tap_action:
-    action: none
-  name: |
-    [[[
-      if (entity) {
-        let attr = [];
-        for (let [k, value] of Object.entries(entity.attributes))
-          value != false && (attr += '<p>${value}</p>');
-        return attr;
-      }
-    ]]]
-  extra_styles: |
-    #card {
-      padding: 0;
-    }
+# sidebar_template:
+#   show_state: false
+#   show_icon: false
+#   tap_action:
+#     action: none
+#   name: |
+#     [[[
+#       if (entity) {
+#         let attr = [];
+#         for (let [k, value] of Object.entries(entity.attributes))
+#           value != false && (attr += '<p>${value}</p>');
+#         return attr;
+#       }
+#     ]]]
+#   extra_styles: |
+#     #card {
+#       padding: 0;
+#     }

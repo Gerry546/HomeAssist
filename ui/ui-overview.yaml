@@ -64,8 +64,16 @@ cards:
             cards:
               - type: conditional
                 conditions:
-                  - entity: select.conditional_media
-                    state_not: TV
+                  - entity: input_select.conditional_media
+                    state_not: recently added
+                card:
+                  type: custom:button-card
+                  entity: sensor.gas_consumption
+                  tap_action:
+                    action: none
+                  template:
+                    - conditional_media
+                    - icon_tv
           - type: grid
             columns: 2
             cards:
@@ -75,6 +83,18 @@ cards:
                 template:
                   - media
                   - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
 
 
   #############################################

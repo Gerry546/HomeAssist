@@ -2,6 +2,10 @@ type: vertical-stack
 view_layout:
   grid-area: sidebar
 cards:
+  # - type: custom:button-card
+  #   entity: sensor.template_sidebar
+  #   template: sidebar_template
+
   - type: "custom:digital-clock"
     dateFormat:
       weekday: "long"
