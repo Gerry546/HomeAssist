@@ -4,5 +4,5 @@ HomeAssistant configuration created from the repository at https://github.com/ma
 # Todo:
 - sidebar sensor
 - recently_played sensor
-- spotify integration
+- spotcast import
 - base_media double tap action --> start playing most recently played media

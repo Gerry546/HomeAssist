@@ -68,6 +68,10 @@ cards:
                     state_not: StudySpeaker
                   - entity: input_select.conditional_media
                     state_not: LivingRoomSpeaker
+                  - entity: input_select.conditional_media
+                    state_not: LivingRoomTV
+                  - entity: input_select.conditional_media
+                    state_not: Spotify
                 card:
                 # TODO: add recently played
                   type: custom:button-card
@@ -77,6 +81,7 @@ cards:
                   template:
                     - conditional_media
                     - icon_nest_mini
+
               - type: conditional
                 conditions:
                   - entity: input_select.conditional_media
@@ -87,6 +92,7 @@ cards:
                   template:
                     - conditional_media
                     - icon_nest_mini
+
               - type: conditional
                 conditions:
                   - entity: input_select.conditional_media
@@ -97,6 +103,29 @@ cards:
                   template:
                     - conditional_media
                     - icon_nest_mini
+
+              - type: conditional
+                conditions:
+                  - entity: input_select.conditional_media
+                    state: LivingRoomTV
+                card:
+                  type: custom:button-card
+                  entity: media_player.living_room_tv
+                  template:
+                    - conditional_media
+                    - icon_tv
+
+              - type: conditional
+                conditions:
+                  - entity: input_select.conditional_media
+                    state: Spotify
+                card:
+                  type: custom:button-card
+                  entity: media_player.spotify_tfg_geelen
+                  template:
+                    - conditional_media
+                    - icon_spotify
+
           - type: grid
             columns: 2
             cards:
@@ -118,7 +147,12 @@ cards:
                 template:
                   - media
                   - icon_nest_mini
-
+              - type: custom:button-card
+                entity: media_player.spotify_tfg_geelen
+                name: Spotify
+                template:
+                  - media
+                  - icon_spotify
 
   #############################################
   # States

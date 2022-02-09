@@ -6,7 +6,7 @@ recently_added:
     i: >
       [[[
         if (entity) {
-          let max = states[entity.entity_id].attributes.data.length - 1;
+          let max = entity.attributes.data.length - 1;
           return Math.floor(Math.random() * max) + 1;
         }
       ]]]
@@ -20,7 +20,8 @@ recently_added:
           number = data[variables.i].number === undefined && data[variables.i].aired !== undefined
             ? `(${data[variables.i].aired.split("-")[0]})`
             : data[variables.i].number === undefined && data[variables.i].aired === undefined
-            ? ' ' : data[variables.i].number,
+            ? ' ' 
+            : data[variables.i].number,
           output =  `${data[variables.i].title} ${number}`;
 
         function marquee() {
@@ -56,7 +57,9 @@ recently_added:
     ]]]
   custom_fields:
     blur: >
-      [[[ return entity === undefined ? null : '<div></div>'; ]]]
+      [[[ 
+        return entity === undefined || '<div></div>';
+      ]]]
   styles:
     custom_fields:
       media_image:
@@ -64,16 +67,28 @@ recently_added:
         - background-image: >
             [[[
               return entity === undefined ||
-                `url('${states[entity.entity_id].attributes.data[variables.i].fanart}'),
-                url('${states[entity.entity_id].attributes.data[variables.i].poster}')`;
+                `url("${entity.attributes.data[variables.i].fanart}"),
+                url("${entity.attributes.data[variables.i].poster}")`;
             ]]]
       blur:
         - display: >
-            [[[ return entity === undefined ? 'none' : 'initial'; ]]]
-      overlay:
+            [[[
+              return entity === undefined
+                ? 'none'
+                : 'initial';
+              ]]]
+      overlayx:
         - display: none
     card:
       - color: >
-          [[[ return entity === undefined ? 'rgba(255, 255, 255, 0.3)' : '#efefef'; ]]]
+          [[[
+            return entity === undefined
+              ? 'rgba(255, 255, 255, 0.3)'
+              : '#efefef';
+          ]]]
       - text-shadow: >
-          [[[ return entity === undefined ? 'none' : '1px 1px 5px rgba(18, 22, 23, 0.9)'; ]]]
+          [[[
+            return entity === undefined
+              ? 'none'
+              : '1px 1px 5px rgba(18, 22, 23, 0.9)';
+          ]]]
