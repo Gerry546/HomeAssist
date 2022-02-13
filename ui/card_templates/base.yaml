@@ -107,7 +107,7 @@ base:
           text-align: left !important;
         }
         #name, #state {
-          font-size: 1.34vw;
+          font-size: 0.65vw;
           letter-spacing: 0.05vw;
         }
         #state::first-letter {

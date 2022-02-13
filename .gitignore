@@ -18,4 +18,5 @@ themes/noctis-solarized
 node-red
 custom_components
 blueprints
-www
+www/community
+www/home
