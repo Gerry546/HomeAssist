@@ -8,3 +8,4 @@ views:
   - !include ui/ui-outside.yaml
   - !include ui/ui-power.yaml
   - !include ui/ui-system.yaml
+  - !include ui/experimental.yaml

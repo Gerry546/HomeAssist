@@ -1,28 +1,29 @@
 title: Overview
-path: overview
-icon: mdi:home
+path: experimental
 type: custom:grid-layout
 layout:
   grid-gap: var(--custom-layout-card-padding)
   grid-template-columns: repeat(4, 1fr) 0
   grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
   grid-template-areas: |
-    "sidebar .        .       .   ."
-    "sidebar states   media   .   ."
-    "sidebar .        media2       .   ."
-    "sidebar .        .       .   ."
+    "sidebar .        .       .         "
+    "sidebar ground   first   second    "
+    "sidebar .        media   outside   "
+    "sidebar .        .       .         "
   mediaquery:
     "(max-width: 600px)":
       grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
       grid-template-columns: 0 repeat(1, 1fr) 0
-      grid-template-rows: 0 repeat(5, fit-content(100%)) 0fr
+      grid-template-rows: 0 repeat(7, fit-content(100%)) 0fr
       grid-template-areas: |
         ".    .       ."
         ".    sidebar ."
-        ".    states  ."
+        ".    0floor  ."
+        ".    1floor  ."
+        ".    2floor  ."
+        ".    mood    ."
         ".    media   ."
-        ".    .       ."
-        ".    .       ."
+        ".    outside ."
         ".    .       ."
     "(max-width: 800px)":
       grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
@@ -38,120 +39,7 @@ layout:
         ".    .       .       ."
 cards:
   - !include ui-sidebar.yaml
-  #############################################
-  # Media
-  #############################################
-  - type: grid
-    title: Media
-    columns: 1
-    view_layout:
-      grid-area: media2
-    cards:
-      - type: custom:swipe-card
-        start_card: 
-        parameters:
-          roundLengths: true
-          effect: coverflow
-          speed: 650
-          spaceBetween: 20
-          threshold: 7
-          coverflowEffect:
-            rotate: 80
-            depth: 300
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: conditional
-                conditions:
-                  - entity: input_select.conditional_media
-                    state_not: StudySpeaker
-                  - entity: input_select.conditional_media
-                    state_not: LivingRoomSpeaker
-                  - entity: input_select.conditional_media
-                    state_not: LivingRoomTV
-                  - entity: input_select.conditional_media
-                    state_not: Spotify
-                card:
-                # TODO: add recently played
-                  type: custom:button-card
-                  entity: media_player.living_room_speaker
-                  tap_action:
-                    action: none
-                  template:
-                    - conditional_media
-                    - icon_nest_mini
 
-              - type: conditional
-                conditions:
-                  - entity: input_select.conditional_media
-                    state: StudySpeaker
-                card:
-                  type: custom:button-card
-                  entity: media_player.study_speaker
-                  template:
-                    - conditional_media
-                    - icon_nest_mini
-
-              - type: conditional
-                conditions:
-                  - entity: input_select.conditional_media
-                    state: LivingRoomSpeaker
-                card:
-                  type: custom:button-card
-                  entity: media_player.living_room_speaker
-                  template:
-                    - conditional_media
-                    - icon_nest_mini
-
-              - type: conditional
-                conditions:
-                  - entity: input_select.conditional_media
-                    state: LivingRoomTV
-                card:
-                  type: custom:button-card
-                  entity: media_player.living_room_tv
-                  template:
-                    - conditional_media
-                    - icon_tv
-
-              - type: conditional
-                conditions:
-                  - entity: input_select.conditional_media
-                    state: Spotify
-                card:
-                  type: custom:button-card
-                  entity: media_player.spotify_tfg_geelen
-                  template:
-                    - conditional_media
-                    - icon_spotify
-
-          - type: grid
-            columns: 2
-            cards:
-              - type: custom:button-card
-                entity: media_player.living_room_tv
-                name: Living Room
-                template:
-                  - media
-                  - icon_tv
-              - type: custom:button-card
-                entity: media_player.study_speaker
-                name: Study Room
-                template:
-                  - media
-                  - icon_nest_mini
-              - type: custom:button-card
-                entity: media_player.living_room_speaker
-                name: Living Room
-                template:
-                  - media
-                  - icon_nest_mini
-              - type: custom:button-card
-                entity: media_player.spotify_tfg_geelen
-                name: Spotify
-                template:
-                  - media
-                  - icon_spotify
   #############################################
   # Media
   #############################################
@@ -267,37 +155,222 @@ cards:
                   - media
                   - icon_spotify
 
-  #############################################
-  # States
-  #############################################
+  ###############################################
+  # Ground floor
+  ###############################################
   - type: grid
+    title: Ground Floor
+    columns: 1
     view_layout:
-      grid-area: states
-    columns: 2
-    title: Lights
-    square: false
+      grid-area: ground
     cards:
-      - type: custom:button-card
-        entity: light.ground_floor
-        name: Ground Floor
-        template:
-          - light
-          - icon_hue
-      - type: custom:button-card
-        entity: light.first_floor
-        name: First Floor
-        template:
-          - light
-          - icon_hue
-      - type: custom:button-card
-        entity: light.second_floor
-        name: Second Floor
-        template:
-          - light
-          - icon_hue
-      - type: custom:button-card
-        entity: light.outside
-        name: Outside
-        template:
-          - light
-          - icon_hue
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          roundLenghts: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
+        cards:
+          - type: custom:button-card
+            entity: light.ground_floor
+            name: Ground Floor
+            template:
+              - light
+              - icon_hue
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.spotify_tfg_geelen
+                name: Spotify
+                template:
+                  - media
+                  - icon_spotify
+
+  ###############################################
+  # First floor
+  ###############################################
+  - type: grid
+    title: First Floor
+    columns: 1
+    view_layout:
+      grid-area: first
+    cards:
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          roundLenghts: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
+        cards:
+          - type: custom:button-card
+            entity: light.first_floor
+            name: Ground Floor
+            template:
+              - light
+              - icon_hue
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.spotify_tfg_geelen
+                name: Spotify
+                template:
+                  - media
+                  - icon_spotify
+
+  ###############################################
+  # Second floor
+  ###############################################
+  - type: grid
+    title: Second Floor
+    columns: 1
+    view_layout:
+      grid-area: second
+    cards:
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          roundLenghts: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
+        cards:
+          - type: custom:button-card
+            entity: light.first_floor
+            name: Ground Floor
+            template:
+              - light
+              - icon_hue
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.spotify_tfg_geelen
+                name: Spotify
+                template:
+                  - media
+                  - icon_spotify
+
+  ###############################################
+  # Outside
+  ###############################################
+  - type: grid
+    title: Outside
+    columns: 1
+    view_layout:
+      grid-area: outside
+    cards:
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          roundLenghts: true
+          effect: coverflow
+          speed: 650
+          spaceBetween: 20
+          threshold: 7
+          coverflowEffect:
+            rotate: 80
+            depth: 300
+        cards:
+          - type: custom:button-card
+            entity: light.first_floor
+            name: Ground Floor
+            template:
+              - light
+              - icon_hue
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                name: Living Room
+                template:
+                  - media
+                  - icon_tv
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                name: Study Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                name: Living Room
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.spotify_tfg_geelen
+                name: Spotify
+                template:
+                  - media
+                  - icon_spotify

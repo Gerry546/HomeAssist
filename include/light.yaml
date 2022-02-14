@@ -77,7 +77,6 @@ light:
     name: First Floor
     entities:
       - light.master_bedroom
-      - light.toilet_upstairs
       - light.study_room_light
       - light.bathroom_light
 
