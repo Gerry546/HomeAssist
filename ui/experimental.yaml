@@ -4,12 +4,12 @@ type: custom:grid-layout
 layout:
   grid-gap: var(--custom-layout-card-padding)
   grid-template-columns: repeat(4, 1fr) 0
-  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-rows: 0 repeat(2, 1fr) 0fr
   grid-template-areas: |
-    "sidebar .        .       .         "
-    "sidebar ground   first   second    "
-    "sidebar .        media   outside   "
-    "sidebar .        .       .         "
+    "sidebar .        .       .         ."
+    "sidebar ground   first   second    ."
+    "sidebar .        media   outside   ."
+    "sidebar .        .       .         ."
   mediaquery:
     "(max-width: 600px)":
       grid-gap: calc(var(--custom-layout-card-padding) * 1.7)
