@@ -1,0 +1,45 @@
+title: Control Rooms
+icon: "mdi:floor-plan"
+badges: []
+type: custom:grid-layout
+layout:
+  grid-template-columns: 10%, repeat(3, 1fr)
+  grid-template-rows: 50% 50%
+  grid-template-areas: |
+    "sidebar    a       b       c"
+    "sidebar    d       .       ."
+cards:
+  - !include widget-sidebar.yaml
+
+  - type: grid
+    columns: 1
+    view_layout:
+      grid-area: a
+    cards:
+      - type: entities
+        entities:
+          - light.garage
+  - type: grid
+    columns: 1
+    view_layout:
+      grid-area: b
+    cards:
+      - type: entities
+        entities:
+          - light.ground_floor
+  - type: grid
+    columns: 1
+    view_layout:
+      grid-area: c
+    cards:
+      - type: entities
+        entities:
+          - light.first_floor    
+  - type: grid
+    columns: 1
+    view_layout:
+      grid-area: d
+    cards:
+      - type: entities
+        entities:
+          - light.first_floor

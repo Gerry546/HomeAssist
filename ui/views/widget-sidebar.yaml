@@ -1,0 +1,7 @@
+type: vertical-stack
+view_layout:
+  grid-area: sidebar
+cards:
+  - type: entities
+    entities:
+      - light.garage
