@@ -1,4 +1,0 @@
-kiosk_mode:
-  hide_header: true
-views:
-  - !include ui/views/control-rooms.yaml

@@ -31,13 +31,7 @@ lovelace:
   dashboards:
     lovelace-yaml:
       mode: yaml
-      title: FrontEnd
-      icon: mdi:script
-      show_in_sidebar: true
-      filename: ui-lovelace.yaml
-    lovelace-yaml-new:
-      mode: yaml
-      title: Experimental
+      title: Dashboard
       icon: mdi:home
       show_in_sidebar: true
-      filename: ui-lovelace2.yaml
+      filename: ui-lovelace.yaml

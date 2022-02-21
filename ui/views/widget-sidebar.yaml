@@ -2,6 +2,9 @@ type: vertical-stack
 view_layout:
   grid-area: sidebar
 cards:
+  - type: weather-forecast
+    entity:
+      - weather.home
   - type: entities
     entities:
-      - light.garage
+      - input_select.state

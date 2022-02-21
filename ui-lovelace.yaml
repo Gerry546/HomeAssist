@@ -1,6 +1,4 @@
-button_card_templates: !include_dir_merge_named ui/card_templates
-
+kiosk_mode:
+  hide_header: false
 views:
-  - !include ui/ui-overview.yaml
-  - !include ui/ui-power.yaml
-  - !include ui/ui-system.yaml
+  - !include ui/views/control-rooms.yaml

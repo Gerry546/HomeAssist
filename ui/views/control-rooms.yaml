@@ -3,43 +3,89 @@ icon: "mdi:floor-plan"
 badges: []
 type: custom:grid-layout
 layout:
-  grid-template-columns: 10%, repeat(3, 1fr)
-  grid-template-rows: 50% 50%
+  grid-template-columns: repeat(4, 1fr)
+  grid-template-rows: repeat(2, 1fr)
   grid-template-areas: |
-    "sidebar    a       b       c"
-    "sidebar    d       .       ."
+    "sidebar    a       b       ."
+    "sidebar    .       .       ."
+  mediaquery:
+    #phone
+    "(max-width: 800px)":
+      grid-template-columns: repeat(1, 1fr)
+      grid_template-rows: repeat(3 1fr)
+      grid-template-areas: |
+        "a      "
+        "b      "
+        "sidebar"
+    #portrait
+    "(max-width: 1200px)":
+      grid-template-columns: repeat(2, 1fr)
+      grid_template-rows: repeat(2 1fr)
+      grid-template-areas: |
+        "a             b"
+        "sidebar sidebar"
 cards:
   - !include widget-sidebar.yaml
 
+##########################################################################
+# Ground floor
+##########################################################################
   - type: grid
     columns: 1
+    title: Ground Floor
     view_layout:
       grid-area: a
     cards:
-      - type: entities
-        entities:
-          - light.garage
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          []
+        cards:
+          - type: grid
+            columns: 2
+            cards:
+              - type: light
+                entity: light.living_room
+              - type: light
+                entity: light.mood_lights
+              - type: light
+                entity: light.kitchen
+              - type: light
+                entity: light.hallway_light_0
+          - type: grid
+            columns: 2
+            cards:
+              - type: light
+                entity: light.reading_corner
+              - type: light
+                entity: light.tv_corner
+              - type: light
+                entity: light.pc_corner
+              - type: light
+                entity: light.dinner_table
+
+##########################################################################
+# First floor
+##########################################################################
   - type: grid
     columns: 1
+    title: First Floor
     view_layout:
       grid-area: b
     cards:
-      - type: entities
-        entities:
-          - light.ground_floor
-  - type: grid
-    columns: 1
-    view_layout:
-      grid-area: c
-    cards:
-      - type: entities
-        entities:
-          - light.first_floor    
-  - type: grid
-    columns: 1
-    view_layout:
-      grid-area: d
-    cards:
-      - type: entities
-        entities:
-          - light.first_floor
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          []
+        cards:
+          - type: grid
+            columns: 2
+            cards:
+              - type: light
+                entity: light.master_bedroom
+              - type: light
+                entity: light.study_room_light
+              - type: light
+                entity: light.bathroom_light
+              - type: light
+                entity: light.toilet_upstairs
