@@ -10,7 +10,8 @@ ___
 
 ## Todo
 
-- fix mediaquery for multiple screen widths
+- finish basic division of widgets
+- redo custom-button loadout
 
 ___
 

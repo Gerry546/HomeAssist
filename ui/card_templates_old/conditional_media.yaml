@@ -1,0 +1,177 @@
+conditional_media:
+  template:
+    - base
+    - base_media
+  state_display: >
+    [[[
+      if (entity) {
+        let elt = this.shadowRoot,
+          await = setTimeout(marquee, 0),
+          artist = entity.attributes.media_artist,
+          title = entity.attributes.media_title,
+
+          output = artist === undefined && title !== undefined 
+            ? title 
+            : title === undefined && artist !== undefined 
+              ? artist 
+              : title !== undefined && artist !== undefined 
+                ? `${artist} - ${title}` 
+                : variables.translate_idle;
+
+        function marquee() {
+          let state = elt.getElementById("state"),
+            container = elt.getElementById("container");
+
+          if (state && container) {
+            state.innerHTML = output;
+            let ro = new ResizeObserver(entries => {
+              let spacer = "&nbsp;".repeat(3),
+                s = entries[0],
+                c = entries[1],
+                r = s && s.contentRect &&
+                    c && c.contentRect &&
+                    s.contentRect.width !== 0 &&
+                    c.contentRect.width !== 0;
+
+              if (r && s.contentRect.width < c.contentRect.width) {
+                state.classList.remove("marquee");
+              }
+              else if (r && s.contentRect.width >= c.contentRect.width) {
+                state.innerHTML = `${output} ${spacer} ${output} ${spacer}&nbsp;`;
+                state.classList.add("marquee");
+              }
+            });
+            ro.observe(state);
+            ro.observe(container);
+          }
+        }
+        return output;
+      }
+      return variables.translate_unknown;
+    ]]]
+  custom_fields:
+    blur: >
+      [[[
+        if (entity && variables.entity_picture && variables.media_on) return '<div></div>';
+      ]]]
+    overlayx: >
+      [[[ 
+        if (entity && variables.entity_picture === undefined && variables.media_on) return '<div></div>';
+      ]]]
+    media_image: >
+      <div></div>
+    play_pause: >
+      [[[
+        let style = `
+          <style>
+            .scale-up {
+              animation: scale-up 1s forwards;
+              cubic-bezier(.05, .5, .3, 1);
+              transform-origin: center center;
+            }
+
+            @keyframes scale-up {
+              0% {
+                opacity: 0;
+                transform: scale(0);
+              }
+              20% {
+                transform: scale(1);
+              }
+              30% {
+                opacity: 1;
+              }
+              80% {
+                opacity: 1;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+          </style>
+        `;
+        if (variables.state === 'paused' && variables.timeout < 2000) {
+          return `
+            <svg viewBox="0 0 166 166">${style}
+              <path class="scale-up" d="M0 0h59.9v166H0zm106.1 0H166v166h-59.9z"/>
+            </svg>
+          `;
+        }
+        if (variables.state === 'playing' && variables.timeout < 2000) {
+          return `
+            <svg viewBox="0 0 166 166">${style}
+              <path class="scale-up" d="M0 0l166 83L0 166z"/>
+            </svg>
+          `;
+        }
+      ]]]
+  styles:
+    name:
+      - z-index: 3
+      - overflow: visible
+      - margin-bottom: -0.75%
+    state:
+      - z-index: 3
+      - max-width: unset
+      - overflow: visible
+      - margin-bottom: -0.5%
+    card:
+      - background-color: rgba(115, 115, 115, 0.2)
+      - padding: 5%
+      - border-radius: calc(var(--custom-button-card-border-radius) / 2)
+      - backdrop-filter: blur(0) #fix chrome bug
+      - -webkit-clip-path: inset(0) #fix safari bug
+    custom_fields:
+      blur:
+        - z-index: 1
+        - left: 0%
+        - width: 100%
+        - position: absolute
+        - background-color: rgba(0, 0, 0, 0.2)
+        - backdrop-filter: blur(0.4em)
+        - -webkit-backdrop-filter: blur(0.4em)
+      overlayx:
+        - left: 0%
+        - width: 100%
+        - position: absolute
+        - background-color: rgba(255, 255, 255, 0.8)
+      media_image:
+        - top: 0
+        - left: 0
+        - width: 100%
+        - height: 100%
+        - position: absolute
+        - background-size: cover
+        - background-image: >
+            [[[
+              return entity && variables.entity_picture
+                ? `url(${entity.attributes.entity_picture})`
+                : `none`;
+            ]]]
+      play_pause:
+        - z-index: 2
+        - top: 0
+        - right: 0
+        - bottom: 0
+        - left: 0
+        - margin: auto
+        - width: 21%
+        - height: 21%
+        - position: absolute
+        - fill: '#dedede'
+        - overflow: visible
+        - filter: >
+            [[[
+              return entity && variables.entity_picture
+                ? 'drop-shadow(0 0 1.3vw rgba(0,0,0,0.7))'
+                : 'none';
+            ]]]
+      icon:
+        - z-index: 2
+        - width: 29%
+        - fill: >
+            [[[ 
+              return entity && variables.media_on
+                  ? 'rgba(255, 255, 255, 0.8)'
+                  : '#9da0a2';
+            ]]]

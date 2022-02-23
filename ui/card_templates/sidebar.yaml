@@ -1,0 +1,19 @@
+sidebar:
+  show_state: false
+  show_icon: false
+  tap_action:
+    action: none
+  name: |
+    [[[
+      if (entity) {
+        let myAttributes = [];
+        for (let [k, value] of Object.entries(entity.attributes)) {
+          value !== false && (myAttributes += `<p>${value}</p>`);
+        }
+        return myAttributes;
+      }
+    ]]]
+  extra_styles: |
+    #card {
+      padding: 0;
+    }

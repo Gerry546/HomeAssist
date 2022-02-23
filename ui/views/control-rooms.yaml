@@ -6,8 +6,8 @@ layout:
   grid-template-columns: repeat(4, 1fr)
   grid-template-rows: repeat(2, 1fr)
   grid-template-areas: |
-    "sidebar    a       b       ."
-    "sidebar    .       .       ."
+    "sidebar    a       b       c"
+    "sidebar    .       d       ."
   mediaquery:
     #phone
     "(max-width: 800px)":
@@ -16,6 +16,8 @@ layout:
       grid-template-areas: |
         "a      "
         "b      "
+        "c      "
+        "d      "
         "sidebar"
     #portrait
     "(max-width: 1200px)":
@@ -23,6 +25,7 @@ layout:
       grid_template-rows: repeat(2 1fr)
       grid-template-areas: |
         "a             b"
+        "c             d"
         "sidebar sidebar"
 cards:
   - !include widget-sidebar.yaml
@@ -89,3 +92,45 @@ cards:
                 entity: light.bathroom_light
               - type: light
                 entity: light.toilet_upstairs
+
+##########################################################################
+# Second floor
+##########################################################################
+  - type: grid
+    columns: 1
+    title: Second Floor
+    view_layout:
+      grid-area: c
+    cards:
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          []
+        cards:
+          - type: grid
+            columns: 2
+            cards:
+              - type: light
+                entity: light.hobby_room
+              - type: light
+                entity: light.hallway_2
+
+##########################################################################
+# Outside floor
+##########################################################################
+  - type: grid
+    columns: 1
+    title: Outside
+    view_layout:
+      grid-area: d
+    cards:
+      - type: custom:swipe-card
+        start_card:
+        parameters:
+          []
+        cards:
+          - type: grid
+            columns: 2
+            cards:
+              - type: light
+                entity: light.garage
