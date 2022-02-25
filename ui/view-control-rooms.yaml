@@ -28,7 +28,7 @@ layout:
         "c             d"
         "sidebar sidebar"
 cards:
-  - !include widget-sidebar.yaml
+  - !include widgets/widget-sidebar.yaml
 
 ##########################################################################
 # Ground floor
@@ -132,5 +132,8 @@ cards:
           - type: grid
             columns: 2
             cards:
-              - type: light
+              - type: custom:button-card
                 entity: light.garage
+                template: 
+                  - light
+                  - icon_shade

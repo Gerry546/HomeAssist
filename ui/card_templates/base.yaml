@@ -58,7 +58,7 @@ base:
       - line-height: 115%
     card:
       - font-family: Sf Display, Roboto
-      - border-radius: var(--custom-button-card-border-radius)
+      - border-radius: 8%
       - -webkit-tap-highlight-color: rgba(0,0,0,0)
       - transition: none
       - padding: 10% 9% 9% 10%
@@ -99,8 +99,8 @@ base:
           ${ variables.state_on && entity.attributes.brightness !== undefined
               ? light_color
               : variables.state_on && entity.attributes.brightness == undefined
-                ? 'var(--state-icon-active-color);'
-                : 'var(--state-icon-color);'
+                ? '"#3182b7";'
+                : '"#9da0a2";'
           }
         }
         #container {
@@ -114,8 +114,8 @@ base:
           text-transform: uppercase;
         }
         #blur, #overlayx {
-            top: calc((100% - var(--media-blur-height)) + 0.5%);
-            height: var(--media-blur-height);
+            top: calc((100% - 24.5%) + 0.5%);
+            height: 24.5%;
         }
         /* portrait */
         @media screen and (max-width: 1200px) {
@@ -124,8 +124,8 @@ base:
             letter-spacing: 0.05vw;
           }
           #blur, #overlayx {
-              top: calc((100% - (var(--media-blur-height) + 1.5%)) + 0.5%);
-              height: calc(var(--media-blur-height) + 1.5%);
+              top: calc((100% - (24.5% + 1.5%)) + 0.5%);
+              height: calc(24.5% + 1.5%);
           }
         }
         /* phone */
@@ -135,8 +135,8 @@ base:
             letter-spacing: 0.12vw;
           }
           #blur, #overlayx {
-              top: calc((100% - (var(--media-blur-height) + 3%)) + 0.5%);
-              height: calc(var(--media-blur-height) + 3%);
+              top: calc((100% - (24.5% + 3%)) + 0.5%);
+              height: calc(24.5% + 3%);
           }
         }
         @keyframes card_bounce {

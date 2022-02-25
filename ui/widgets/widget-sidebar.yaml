@@ -1,0 +1,32 @@
+type: vertical-stack
+view_layout:
+  grid-area: sidebar
+cards:
+  - type: custom:button-card
+    entity: sensor.template_sidebar
+    template: sidebar
+  - type: entities
+    entities:
+      - input_select.state
+  - type: grid
+    columns: 2
+    cards:
+      - type: button
+        icon: mdi:home
+        tap_action:
+          action: navigate
+          navigation_path: '/lovelace-yaml/0'
+      - type: button
+        icon: mdi:radio
+        tap_action:
+          action: navigate
+          navigation_path: '/lovelace-yaml/1'
+  - type: grid
+    columns: 2
+    cards:
+      - type: custom:button-card
+        entity: person.tom_geelen
+        name: Tom
+      - type: custom:button-card
+        entity: person.willeke
+        name: Willeke
