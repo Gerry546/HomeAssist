@@ -9,10 +9,10 @@ settings:
     timeout: >
       [[[ return entity === undefined || Date.now() - Date.parse(entity.last_changed); ]]]
     media_on: >
-          [[[ return entity === undefined || ['playing', 'paused'].indexOf(entity.state) !== -1; ]]]
+      [[[ return entity === undefined || ['playing', 'paused'].indexOf(entity.state) !== -1; ]]]
     media_off: >
-        [[[ return entity === undefined || ['off', 'idle', 'standby', 'unknown', 'unavailable'].indexOf(entity.state) !== -1; ]]]
+      [[[ return entity === undefined || ['off', 'idle', 'standby', 'unknown', 'unavailable'].indexOf(entity.state) !== -1; ]]]
     entity_picture: >
-        [[[ return entity === undefined || entity.attributes.entity_picture; ]]]
+      [[[ return entity === undefined || entity.attributes.entity_picture; ]]]
     entity_id: >
-        [[[ return entity === undefined || entity.entity_id; ]]]
+      [[[ return entity === undefined || entity.entity_id; ]]]

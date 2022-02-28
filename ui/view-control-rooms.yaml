@@ -47,25 +47,41 @@ cards:
           - type: grid
             columns: 2
             cards:
-              - type: light
+              - type: custom:button-card
                 entity: light.living_room
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.mood_lights
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.kitchen
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.hallway_light_0
+                template: 
+                  - light
           - type: grid
             columns: 2
             cards:
-              - type: light
+              - type: custom:button-card
                 entity: light.reading_corner
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.tv_corner
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.pc_corner
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.dinner_table
+                template: 
+                  - light
 
 ##########################################################################
 # First floor
@@ -84,14 +100,22 @@ cards:
           - type: grid
             columns: 2
             cards:
-              - type: light
+              - type: custom:button-card
                 entity: light.master_bedroom
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.study_room_light
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.bathroom_light
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.toilet_upstairs
+                template: 
+                  - light
 
 ##########################################################################
 # Second floor
@@ -110,10 +134,14 @@ cards:
           - type: grid
             columns: 2
             cards:
-              - type: light
+              - type: custom:button-card
                 entity: light.hobby_room
-              - type: light
+                template: 
+                  - light
+              - type: custom:button-card
                 entity: light.hallway_2
+                template: 
+                  - light
 
 ##########################################################################
 # Outside floor
@@ -136,4 +164,3 @@ cards:
                 entity: light.garage
                 template: 
                   - light
-                  - icon_shade
