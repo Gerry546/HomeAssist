@@ -7,9 +7,6 @@ tts:
 
 browser_mod:
   prefix: "browser_"
-  devices: 
-    20225ac3-c0a954df:
-      name: tompc
 
 history:
   exclude:

@@ -13,8 +13,8 @@ base:
     haptic: light
   styles:
     name:
-      [top: 60%, 
-       left: 0%, 
+      [top: 80%, 
+       left: 5%, 
        line-height: 1vw, 
        position: absolute
       ]

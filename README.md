@@ -1,19 +1,35 @@
 # Home-Assistant Configuration
 
-Todo
-___
+Raspberry Pi 4 with Home Assistant Operating System.
+
+## Node-Red
+
+----
+
+- Turn on lights 15 minutes before the sun sets
+- Turn off all the lights when everyone is in bed or gone
+- Automate the enabling/disabling of the 3D printer power supply
+- Turn on/off hallway lights automatically
+- Turn on/off toilet lights automatically and brightness depending on the time of day
+
+## Features
+
+----
+
+- Single size adjusting Lovelace dashboard based on card-mod so it can be used on any platform (mobile, desktop or tablet).
 
 ## Hardware
 
 Todo
-___
 
-## Todo
+----
 
-- finish basic division of widgets
-- redo custom-button loadout
+## Todo List
 
-___
+- enable brightness option in light popup
+- Write readme
+
+----
 
 ## Credits
 
