@@ -11,12 +11,12 @@ cards:
   - type: grid
     columns: 2
     cards:
-      - type: button
+      - type: custom:button-card
         icon: mdi:home
         tap_action:
           action: navigate
           navigation_path: '/lovelace-yaml/0'
-      - type: button
+      - type: custom:button-card
         icon: mdi:radio
         tap_action:
           action: navigate

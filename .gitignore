@@ -1,6 +1,7 @@
 # ignore generic files
 .cloud
 .storage
+.vscode
 
 # ignore confidential stuff
 tts
