@@ -116,6 +116,7 @@ cards:
                 entity: light.toilet_upstairs
                 template: 
                   - light
+                  - icon_toilet
 
 ##########################################################################
 # Second floor
