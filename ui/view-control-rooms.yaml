@@ -7,7 +7,7 @@ layout:
   grid-template-rows: repeat(2, 1fr)
   grid-template-areas: |
     "sidebar    a       b       c"
-    "sidebar    .       d       ."
+    "sidebar    e       d       ."
   mediaquery:
     #phone
     "(max-width: 800px)":
@@ -30,9 +30,9 @@ layout:
 cards:
   - !include widgets/widget-sidebar.yaml
 
-##########################################################################
-# Ground floor
-##########################################################################
+  ##########################################################################
+  # Ground floor
+  ##########################################################################
   - type: grid
     columns: 1
     title: Ground Floor
@@ -41,51 +41,57 @@ cards:
     cards:
       - type: custom:swipe-card
         start_card:
-        parameters:
-          []
+        parameters: []
         cards:
           - type: grid
             columns: 2
             cards:
               - type: custom:button-card
                 entity: light.living_room
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.mood_lights
-                template: 
+                template:
                   - light
               - type: custom:button-card
                 entity: light.kitchen
-                template: 
+                template:
                   - light
+                  - icon_kitchen
               - type: custom:button-card
                 entity: light.hallway_light_0
-                template: 
+                template:
                   - light
+                  - icon_GU10
           - type: grid
             columns: 2
             cards:
               - type: custom:button-card
                 entity: light.reading_corner
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.tv_corner
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.pc_corner
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.dinner_table
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
 
-##########################################################################
-# First floor
-##########################################################################
+  ##########################################################################
+  # First floor
+  ##########################################################################
   - type: grid
     columns: 1
     title: First Floor
@@ -94,33 +100,35 @@ cards:
     cards:
       - type: custom:swipe-card
         start_card:
-        parameters:
-          []
+        parameters: []
         cards:
           - type: grid
             columns: 2
             cards:
               - type: custom:button-card
                 entity: light.master_bedroom
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.study_room_light
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.bathroom_light
-                template: 
+                template:
                   - light
+                  - icon_GU10
               - type: custom:button-card
                 entity: light.toilet_upstairs
-                template: 
+                template:
                   - light
                   - icon_toilet
 
-##########################################################################
-# Second floor
-##########################################################################
+  ##########################################################################
+  # Second floor
+  ##########################################################################
   - type: grid
     columns: 1
     title: Second Floor
@@ -129,24 +137,25 @@ cards:
     cards:
       - type: custom:swipe-card
         start_card:
-        parameters:
-          []
+        parameters: []
         cards:
           - type: grid
             columns: 2
             cards:
               - type: custom:button-card
                 entity: light.hobby_room
-                template: 
+                template:
                   - light
+                  - icon_hanglamp
               - type: custom:button-card
                 entity: light.hallway_2
-                template: 
+                template:
                   - light
+                  - icon_GU10
 
-##########################################################################
-# Outside floor
-##########################################################################
+  ##########################################################################
+  # Outside floor
+  ##########################################################################
   - type: grid
     columns: 1
     title: Outside
@@ -155,13 +164,45 @@ cards:
     cards:
       - type: custom:swipe-card
         start_card:
-        parameters:
-          []
+        parameters: []
         cards:
           - type: grid
             columns: 2
             cards:
               - type: custom:button-card
                 entity: light.garage
-                template: 
+                template:
                   - light
+                  - icon_spot
+
+  ##########################################################################
+  # Media
+  ##########################################################################
+  - type: grid
+    columns: 1
+    title: Media
+    view_layout:
+      grid-area: e
+    cards:
+      - type: custom:swipe-card
+        start_card: 1
+        parameters: []
+        cards:
+          - type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: media_player.living_room_tv
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.living_room_speaker
+                template:
+                  - media
+                  - icon_nest_mini
+              - type: custom:button-card
+                entity: media_player.study_speaker
+                template:
+                  - media
+                  - icon_nest_mini
