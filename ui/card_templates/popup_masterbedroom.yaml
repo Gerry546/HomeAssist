@@ -1,0 +1,48 @@
+popup_masterbedroom:
+  template: ["base"]
+  custom_fields:
+    circle: >
+      [[[ 
+        if (entity.state === 'on' && entity.attributes.brightness) {
+          const brightness = Math.round(entity.attributes.brightness / 2.54);
+          const radius = 20.5; const circumference = radius * 2 * Math.PI; 
+          return `<svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="${radius}" stroke="#b2b2b2" stroke-width="1.5" fill="none" style="
+          transform: rotate(-90deg); transform-origin: 50% 50%; stroke-dasharray: ${circumference}; stroke-dashoffset: ${circumference - brightness / 100 * circumference};" />
+          <text x="50%" y="54%" fill="#8d8e90" font-size="14" text-anchor="middle" alignment-baseline="middle">${brightness}<tspan font-size="10">%</tspan></text></svg>`; 
+        } 
+      ]]]
+  double_tap_action:
+    action: fire-dom-event
+    browser_mod:
+      command: call-service
+      service: browser_mod.popup
+      service_data:
+        title: "[[[ return entity.attributes.friendly_name ]]]"
+        deviceID: this
+        card:
+          type: entities
+          entities:
+            - type: custom:hui-element
+              card_type: grid
+              style: |
+                #root {
+                  justify-content: space-evenly;
+                  margin: 1.4em -0.7em 0.7em 0;
+                }
+              columns: 2
+              cards:
+                - type: custom:button-card
+                  entity: light.bedroom_light
+                  template:
+                    - light
+                    - icon_hanglamp
+                - type: custom:button-card
+                  entity: light.bed_side_lamp_1
+                  template:
+                    - light
+                    - icon_GU10
+                - type: custom:button-card
+                  entity: light.bed_side_lamp_2
+                  template:
+                    - light
+                    - icon_GU10

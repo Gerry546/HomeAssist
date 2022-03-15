@@ -28,6 +28,7 @@ Todo
 
 - enable brightness option in light popup
 - Write readme
+- Ensure light groups get popup on hold tap action to adjust whole group in one go
 
 ----
 
