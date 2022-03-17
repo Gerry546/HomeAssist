@@ -7,8 +7,7 @@ layout:
   grid-template-rows: 10% repeat(2, 1fr) 10%
   grid-template-areas: |
     "sidebar    header  header  header"
-    "sidebar    ground  first   ."
-    "sidebar    second       out     ."
+    "sidebar    ground  upper   other"
     "sidebar    footer  footer  footer"
   mediaquery:
     #phone
@@ -18,9 +17,9 @@ layout:
       grid-template-areas: |
         "header "
         "ground "
-        "first  "
-        "second "
-        "out    "
+        "upper  "
+        "other  "
+        ".      "
         "footer "
         "sidebar"
     #portrait
@@ -29,8 +28,8 @@ layout:
       grid_template-rows: repeat(5 1fr)
       grid-template-areas: |
         "header        header"
-        "ground        first "
-        "second        out   "
+        "ground        upper "
+        "other         .     "
         "footer        footer"
         "sidebar       sidebar"
 cards:
@@ -64,19 +63,19 @@ cards:
               - light
               - icon_kitchen
           - type: custom:button-card
-            entity: light.hallway_light_0
+            entity: light.garage
             template:
               - light
-              - icon_GU10
+              - icon_spot
 
   ##########################################################################
   # First floor
   ##########################################################################
   - type: grid
     columns: 1
-    title: First Floor
+    title: Upper Floors
     view_layout:
-      grid-area: first
+      grid-area: upper
     cards:
       - type: grid
         columns: 2
@@ -92,53 +91,35 @@ cards:
               - light
               - icon_hanglamp
           - type: custom:button-card
-            entity: light.bathroom_light
+            entity: light.hobby_room
             template:
               - light
-              - icon_GU10
-          - type: custom:button-card
-            entity: light.toilet_upstairs
-            template:
-              - light
-              - icon_toilet
+              - icon_hanglamp
 
   ##########################################################################
   # Second floor
   ##########################################################################
   - type: grid
     columns: 1
-    title: Second Floor
+    title: Other
     view_layout:
-      grid-area: second
+      grid-area: other
     cards:
       - type: grid
         columns: 2
         cards:
           - type: custom:button-card
-            entity: light.hobby_room
+            entity: light.toilets
             template:
-              - light
-              - icon_hanglamp
+              - popup_toilet
+              - icon_toilet
           - type: custom:button-card
-            entity: light.hallway_2
+            entity: light.bathroom_light
             template:
               - light
               - icon_GU10
-
-  ##########################################################################
-  # Outside
-  ##########################################################################
-  - type: grid
-    columns: 1
-    title: Outside
-    view_layout:
-      grid-area: out
-    cards:
-      - type: grid
-        columns: 2
-        cards:
           - type: custom:button-card
-            entity: light.garage
+            entity: light.hallway
             template:
-              - light
-              - icon_spot
+              - popup_hallway
+              - icon_GU10

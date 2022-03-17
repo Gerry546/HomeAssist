@@ -57,6 +57,24 @@ light:
       - light.garage
 
   ###############################
+  # Hallway
+  ###############################
+  - platform: group
+    name: Hallway
+    entities:
+      - light.hallway_light_0
+      - light.hallway_2
+
+  ###############################
+  # Toilet
+  ###############################
+  - platform: group
+    name: Toilets
+    entities:
+      - light.toilet_downstairs
+      - light.toilet_upstairs
+
+  ###############################
   # First Floor
   ###############################
 
