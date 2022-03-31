@@ -1,0 +1,21 @@
+type: grid
+columns: 1
+title: Living Room
+view_layout:
+  grid-area: living_room
+cards:
+  - type: grid
+    columns: 2
+    cards:
+      - type: custom:button-card
+        entity: light.living_room
+        template: []
+      - type: custom:button-card
+        entity: light.mood_lights
+        template: []
+      - type: custom:button-card
+        entity: light.kitchen
+        template: []
+      - type: custom:button-card
+        entity: light.garage
+        template: []

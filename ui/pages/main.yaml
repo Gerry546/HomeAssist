@@ -1,0 +1,32 @@
+title: Main View
+type: custom:grid-layout
+layout:
+  # Default layout
+  margin: 0
+  grid-gap: 3.3vw
+  grid-template-columns: repeat(4, 1fr) 0
+  grid-template-rows: 0 repeat(2, fit-content(100%)) 0fr
+  grid-template-areas: |
+    "sidebar    .   .   .   ."
+    "sidebar    living_room   study_room   other   ."
+    "sidebar    .   .   .   ."
+    "sidebar    .   .   .   ."
+  mediaquery:
+    # phone
+    "(max-width: 800px)":
+      grid-gap: calc(3.3 * 1.7)
+      grid-template-columns: 0 repeat(2, 1fr) 0
+      grid-template-rows: 0 repeat(5, fit-contents(100%)) 0fr
+      grid-template-areas: |
+        ".  .           .           ."
+        ".  sidebar     sidebar     ."
+        ".  living_room study_room  ."
+        ".  other       .           ."
+        ".  .           .           ."
+        ".  .           .           ."
+        ".  .           .           ."
+cards:
+  - !include ../tiles/sidebar.yaml
+  - !include ../tiles/living_room.yaml
+  - !include ../tiles/study_room.yaml
+  - !include ../tiles/other.yaml

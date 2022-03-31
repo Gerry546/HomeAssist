@@ -1,0 +1,18 @@
+type: grid
+columns: 1
+title: Other
+view_layout:
+  grid-area: other
+cards:
+  - type: grid
+    columns: 2
+    cards:
+      - type: custom:button-card
+        entity: light.toilets
+        template: []
+      - type: custom:button-card
+        entity: light.bathroom_light
+        template: []
+      - type: custom:button-card
+        entity: light.hallway
+        template: []

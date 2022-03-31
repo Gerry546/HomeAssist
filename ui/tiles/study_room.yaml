@@ -1,0 +1,18 @@
+type: grid
+columns: 1
+title: Upper Floors
+view_layout:
+  grid-area: study_room
+cards:
+  - type: grid
+    columns: 2
+    cards:
+      - type: custom:button-card
+        entity: light.master_bedroom
+        template: []
+      - type: custom:button-card
+        entity: light.study_room_light
+        template: []
+      - type: custom:button-card
+        entity: light.hobby_room
+        template: []
