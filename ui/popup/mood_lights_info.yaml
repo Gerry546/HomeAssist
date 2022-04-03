@@ -1,0 +1,35 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: >
+    [[[
+      return entity === undefined || entity.attributes.friendly_name;
+    ]]]
+  card:
+    type: entities
+    entities:
+      - type: custom:hui-element
+        card_type: grid
+        style: |
+          #root {
+            justify-content: space-evenly;
+            margin: 1.4em -0.7em 0.7em 0;
+          }
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.stone_lamp
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.tasmota_standinglamp
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.small_lamp
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.cupboard
+            template:
+              - light

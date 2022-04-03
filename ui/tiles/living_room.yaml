@@ -9,13 +9,15 @@ cards:
     cards:
       - type: custom:button-card
         entity: light.living_room
-        template: []
+        double_tap_action: !include ../popup/living_room_info.yaml
+        template: [light]
       - type: custom:button-card
         entity: light.mood_lights
-        template: []
+        double_tap_action: !include ../popup/mood_lights_info.yaml
+        template: [light]
       - type: custom:button-card
         entity: light.kitchen
-        template: []
+        template: [light]
       - type: custom:button-card
         entity: light.garage
-        template: []
+        template: [light]

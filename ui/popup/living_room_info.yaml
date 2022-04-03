@@ -1,0 +1,35 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: >
+    [[[
+      return entity === undefined || entity.attributes.friendly_name;
+    ]]]
+  card:
+    type: entities
+    entities:
+      - type: custom:hui-element
+        card_type: grid
+        style: |
+          #root {
+            justify-content: space-evenly;
+            margin: 1.4em -0.7em 0.7em 0;
+          }
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.tv_corner
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.reading_corner
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.dinner_table
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.pc_corner
+            template:
+              - light

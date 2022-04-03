@@ -9,10 +9,11 @@ cards:
     cards:
       - type: custom:button-card
         entity: light.master_bedroom
-        template: []
+        double_tap_action: !include ../popup/master_bedroom_info.yaml
+        template: [light]
       - type: custom:button-card
         entity: light.study_room_light
-        template: []
+        template: [light]
       - type: custom:button-card
         entity: light.hobby_room
-        template: []
+        template: [light]

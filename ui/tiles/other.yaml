@@ -9,10 +9,12 @@ cards:
     cards:
       - type: custom:button-card
         entity: light.toilets
-        template: []
+        double_tap_action: !include ../popup/toilet_room_info.yaml
+        template: [light]
       - type: custom:button-card
         entity: light.bathroom_light
-        template: []
+        template: [light]
       - type: custom:button-card
         entity: light.hallway
-        template: []
+        double_tap_action: !include ../popup/hallway_room_info.yaml
+        template: [light]

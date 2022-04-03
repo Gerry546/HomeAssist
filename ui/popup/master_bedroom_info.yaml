@@ -1,0 +1,31 @@
+action: fire-dom-event
+browser_mod:
+  command: popup
+  title: >
+    [[[
+      return entity === undefined || entity.attributes.friendly_name;
+    ]]]
+  card:
+    type: entities
+    entities:
+      - type: custom:hui-element
+        card_type: grid
+        style: |
+          #root {
+            justify-content: space-evenly;
+            margin: 1.4em -0.7em 0.7em 0;
+          }
+        columns: 2
+        cards:
+          - type: custom:button-card
+            entity: light.bed_side_lamp_1
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.bed_side_lamp_2
+            template:
+              - light
+          - type: custom:button-card
+            entity: light.bedroom_light
+            template:
+              - light

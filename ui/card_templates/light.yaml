@@ -1,0 +1,9 @@
+light:
+  template:
+    - base
+    - circle
+    # - loader
+  variables:
+    circle_input: >
+      [[[ return entity === undefined || Math.round(entity.attributes.brightness / 2.54); ]]]
+  hold_action: !include ../popup/light_info.yaml
