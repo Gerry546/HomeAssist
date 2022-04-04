@@ -21,6 +21,7 @@ browser_mod:
             entity: light.stone_lamp
             template:
               - light
+              - icon_lamp
           - type: custom:button-card
             entity: light.tasmota_standinglamp
             template:
@@ -29,6 +30,7 @@ browser_mod:
             entity: light.small_lamp
             template:
               - light
+              - icon_lamp
           - type: custom:button-card
             entity: light.cupboard
             template:

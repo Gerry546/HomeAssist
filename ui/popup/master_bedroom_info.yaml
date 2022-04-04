@@ -21,11 +21,14 @@ browser_mod:
             entity: light.bed_side_lamp_1
             template:
               - light
+              - icon_lamp
           - type: custom:button-card
             entity: light.bed_side_lamp_2
             template:
               - light
+              - icon_lamp
           - type: custom:button-card
             entity: light.bedroom_light
             template:
               - light
+              - icon_hang

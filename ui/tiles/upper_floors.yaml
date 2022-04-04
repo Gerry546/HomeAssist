@@ -10,10 +10,16 @@ cards:
       - type: custom:button-card
         entity: light.master_bedroom
         double_tap_action: !include ../popup/master_bedroom_info.yaml
-        template: [light]
+        template:
+          - light
+          - icon_hang
       - type: custom:button-card
         entity: light.study_room_light
-        template: [light]
+        template:
+          - light
+          - icon_hang
       - type: custom:button-card
         entity: light.hobby_room
-        template: [light]
+        template:
+          - light
+          - icon_hang

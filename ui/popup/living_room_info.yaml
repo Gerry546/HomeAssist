@@ -13,7 +13,7 @@ browser_mod:
         style: |
           #root {
             justify-content: space-evenly;
-            margin: 1.4em -0.7em 0.7em 0;
+            margin: 0 -0.7em 0.7em 0;
           }
         columns: 2
         cards:
@@ -29,7 +29,9 @@ browser_mod:
             entity: light.dinner_table
             template:
               - light
+              - icon_spot
           - type: custom:button-card
             entity: light.pc_corner
             template:
               - light
+              - icon_spot

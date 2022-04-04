@@ -21,7 +21,9 @@ browser_mod:
             entity: light.toilet_downstairs
             template:
               - light
+              - icon_toilet
           - type: custom:button-card
             entity: light.toilet_upstairs
             template:
               - light
+              - icon_toilet

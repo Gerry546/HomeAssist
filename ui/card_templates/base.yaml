@@ -13,6 +13,10 @@ base:
       [[[ 
         return entity === undefined || entity.entity_id;
       ]]]
+    timeout: >
+      [[[ 
+        return entity === undefined || Date.now() - Date.parse(entity.last_changed); 
+      ]]]
   aspect_ratio: 1/1
   show_state: true
   show_icon: false
