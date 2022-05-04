@@ -21,7 +21,9 @@ browser_mod:
             entity: light.hallway_light_0
             template:
               - light
+              - icon_hang
           - type: custom:button-card
             entity: light.hallway_2
             template:
               - light
+              - icon_hang

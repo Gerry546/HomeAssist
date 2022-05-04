@@ -16,12 +16,16 @@ cards:
       - type: custom:button-card
         entity: light.mood_lights
         double_tap_action: !include ../popup/mood_lights_info.yaml
-        template: [light]
+        template:
+          - light
+          - icon_led
       - type: custom:button-card
         entity: light.kitchen
         template:
           - light
-          - icon_hang
+          - icon_kitchen
       - type: custom:button-card
         entity: light.garage
-        template: [light]
+        template:
+          - light
+          - icon_gu10

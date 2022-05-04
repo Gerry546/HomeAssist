@@ -2,6 +2,10 @@ type: vertical-stack
 view_layout:
   grid-area: sidebar
 cards:
+  - type: custom:button-card
+    entity: sensor.template_sidebar
+    template:
+      - sidebar
   - type: entities
     entities:
       - input_select.state

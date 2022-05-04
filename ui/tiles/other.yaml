@@ -17,6 +17,7 @@ cards:
         entity: light.bathroom_light
         template:
           - light
+          - icon_hang
       - type: custom:button-card
         entity: light.hallway
         double_tap_action: !include ../popup/hallway_room_info.yaml
