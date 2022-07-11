@@ -13,10 +13,6 @@ history:
     domains:
       - binary_sensor
 
-spotify:
-  client_id: !secret spotify_clientid
-  client_secret: !secret spotify_clientsecret
-
 homeassistant:
   packages: !include_dir_named include
 
